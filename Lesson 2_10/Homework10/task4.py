@@ -25,7 +25,7 @@ class Dog(Animal):
 
     def __str__(self):
         if self.is_domestic:
-            return f'Dog {self.color} {self.breed} домашняя'
+            return f'{self.name} {self.color} {self.breed} домашняя'
         return f'Dog {self.color} {self.breed} дворняга'
 
 
@@ -38,7 +38,7 @@ class Kotopes(Animal):
         self.__number_heads = number_heads
 
     def __str__(self):
-        return f'Kotopes -> number_heads: {self.__number_heads},\
+        return f'{self.name} имеет голов: {self.__number_heads},\
         Возраст: {self.age}, не женат '
 
 

@@ -29,10 +29,10 @@ class Fabrika(source.Animal):
 
 
 if __name__ == '__main__':
-    param1 = 'Dog', 'Rex14', 5, 'рыжая', 'овчарка', True
-    param2 = 'Kotopes', 'Murzilka', 5, 2 #error data
+    param1 = 'Dog', 'Рекс', 5, 'рыжая', 'овчарка', True
+    param2 = ['Kotopes', 'Murzilka', 5, 2] #error data
     param3 = 'Fish', 'Nemo', 3, False, 2
-
+    print(type(param1), '\n', type(param2))
 
     animal1 = Fabrika(*param1).creation()
     animal2 = Fabrika(*param2).creation()
