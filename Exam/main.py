@@ -7,7 +7,7 @@ import argparse
 # запуск из терминала, текущей папки например >>>py .\main.py Sorted
 
 logging.basicConfig(filename='unsorted_letters.log.', filemode='w', encoding='utf-8', level=logging.INFO)
-logger = logging.getLogger('Основной файл проекта')
+logger = logging.getLogger(__name__)
 
 parser = argparse.ArgumentParser(description='My first argument parser')
 parser.add_argument('names', metavar='DirName', type=str, nargs=1, help='enter name for SortedDir')
@@ -65,14 +65,15 @@ except FileNotFoundError:
     print('No such file, exit')
     exit(1)
 name = args.names[0]
-print(name)
 if not os.path.exists(f'./{name}'):
     os.mkdir(f'./{name}')
 for key in storage:
     name2 = str(key).replace(' ', '_')
     name2 = name2.replace(',', '_')
 
-    with open(f'./{name}/{name2}.csv','w', newline='', encoding='utf-8') as w:
+    with open(f'./{name}/{name2}.csv','w', newline='\n', encoding='utf-8') as w:
         wr = csv.writer(w)
-        wr.writerows(storage[key])
+        line = str(storage[key]).split('\n')
+        for item in line:
+            wr.writerow([item])
     # print(f'{key}:\n{storage[key]}')
