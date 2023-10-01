@@ -73,7 +73,9 @@ for key in storage:
 
     with open(f'./{name}/{name2}.csv','w', newline='\n', encoding='utf-8') as w:
         wr = csv.writer(w)
+
         line = str(storage[key]).split('\n')
         for item in line:
+            item = item.replace('"', '')
             wr.writerow([item])
     # print(f'{key}:\n{storage[key]}')
